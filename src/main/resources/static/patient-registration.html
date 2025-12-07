@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register as Patient - ClinicCare</title>
+    <link rel="stylesheet" href="/css/patient-registration-style.css" />
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-card">
+            <div class="logo">
+                <h1>ClinicCare</h1>
+                <p>Healthcare Management System</p>
+            </div>
+
+            <h2>Create Patient Account</h2>
+            <p class="subtitle">Join us for better healthcare management</p>
+
+            <form id="register-form">
+                <!-- Account Info -->
+                <div class="form-section">
+                    <h3>Account Details</h3>
+                    <div class="input-group">
+                        <input type="text" id="regUsername" placeholder="Username" required />
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="regPassword" placeholder="Password" required />
+                    </div>
+                </div>
+
+                <!-- Personal Info -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="input-group">
+                        <input type="text" id="regName" placeholder="Full Name" required />
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group half">
+                            <input type="number" id="regAge" placeholder="Age" min="1" max="120" />
+                        </div>
+                        <div class="input-group half">
+                            <select id="regGender" required>
+                                <option value="" disabled selected>Gender</option>
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                                <option value="OTHER">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="regPhone" placeholder="Phone Number" />
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="regEmail" placeholder="Email (optional)" />
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="regAddress" placeholder="Address (optional)" />
+                    </div>
+                    <div class="input-group">
+                        <textarea id="regMedicalHistory" placeholder="Medical History (allergies, conditions, etc.) - optional" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <button type="button" onclick="registerPatient()">Create Account</button>
+            </form>
+
+            <div id="patient-register-error" class="error"></div>
+        	<div id="patient-register-success" class="success"></div>
+
+            <div class="links">
+                <p>Already have an account? <a href="/login.html">Login here</a></p>
+                <p><a href="/index.html">Back to Home</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - ClinicCare</title>
+    <link rel="stylesheet" href="/css/doctor-style.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <div class="logo">
+                <h1>ClinicCare</h1>
+                <p>Doctor Dashboard</p>
+            </div>
+            <div class="doctor-info">
+                <div>
+                    <span>Welcome, <strong id="doctor-name">Loading...</strong></span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome">
+                <h2>Your Patients, Your Care</h2>
+                <p>View appointments and prescribe medicines efficiently.</p>
+            </div>
+
+            <div id="message" class="message" style="display:none"></div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab('view-appointments')">All Appointments</button>
+                <button class="tab-btn" onclick="openTab('view-today')">Today's Appointments</button>
+            </div>
+
+            <!-- All Appointments -->
+			<div id="view-appointments" class="tab-content">
+				<h3>All Appointments</h3>
+				<div class="table-container">
+					<table id="appointments-table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Patient Name</th>
+								<th>Age</th>
+								<th>Date</th>
+								<th>Time</th>
+								<th>Status</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+
+				</div>
+			</div>
+
+			<!-- Today's Appointments -->
+            <div id="view-today" class="tab-content" style="display:none">
+				<h3>Today's Appointments</h3>
+				<div class="table-container">
+					<table id="today-table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Patient Name</th>
+								<th>Age</th>
+								<th>Time</th>
+								<th>Status</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+
+				</div>
+			</div>
+        </main>
+    </div>
+
+    <!-- Prescription Modal -->
+    <div id="prescription-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h3>Prescribe for <span id="modal-patient-name"></span></h3>
+            <input type="hidden" id="prescription-appointment-id" />
+            <textarea id="prescription-details" placeholder="Enter medication, dosage, duration, instructions..." rows="10"></textarea>
+            <button onclick="submitPrescription()" class="btn-primary">Save Prescription</button>
+        </div>
+    </div>
+</body>
+<script src="/js/doctor.js"></script>
+</html>

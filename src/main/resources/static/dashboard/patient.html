@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Patient Portal - ClinicCare</title>
+    <link rel="stylesheet" href="/css/patient-style.css"/>
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <div class="logo">
+                <h1>ClinicCare</h1>
+                <p>Patient Portal</p>
+            </div>
+            <div class="patient-info">
+                <div>
+                    <span>Welcome, <strong id="patient-name">Loading...</strong></span><br>
+                    <small id="patient-info">Loading...</small>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome">
+                <h2>Your Health, Our Priority</h2>
+                <p>Book appointments, view prescriptions, and manage your care easily.</p>
+            </div>
+
+            <div id="message" class="message" style="display:none"></div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab('doctors')">Find a Doctor</button>
+                <button class="tab-btn" onclick="openTab('appointments')">My Appointments</button>
+                <button class="tab-btn" onclick="openTab('prescriptions')">My Prescriptions</button>
+            </div>
+
+            <!-- Doctors -->
+            <div id="doctors" class="tab-content">
+                <h3>Doctors</h3>
+                <div id="doctors-list" class="table-container">
+                    <table id="doctors-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Specialization</th>
+                                <th>Availability</th>
+                                <th>Phone</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <!-- Booking Form -->
+                <form id="booking-form" style="display:none;margin-top:30px;" onsubmit="event.preventDefault(); bookAppointment();">
+                    <h3>Book Appointment with Dr. <span id="selected-doctor"></span></h3>
+                    <input type="hidden" id="doctor-id"/>
+
+                    <div class="input-group">
+                        <label>Date</label>
+                        <input type="date" id="appointment-date" required/>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Time</label>
+                        <input type="time" id="appointment-time" required/>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn-primary" id="book-btn">Confirm Booking</button>
+                        <button type="button" onclick="cancelBooking()" class="btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Appointments -->
+            <div id="appointments" class="tab-content" style="display:none">
+                <h3>My Appointments</h3>
+                <div class="table-container">
+                    <table id="appointments-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Doctor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Prescriptions -->
+            <div id="prescriptions" class="tab-content" style="display:none">
+                <h3>My Prescriptions</h3>
+                <div class="table-container">
+                    <table id="prescriptions-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Doctor</th>
+                                <th>Prescription</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="/js/patient.js"></script>
+</body>
+</html>
