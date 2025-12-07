@@ -2,7 +2,6 @@ package com.clinic.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -12,10 +11,9 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    @Value("${jwt.secret}")
-    private String secret;
+    
+    private String secret = "SuperSecretKeyForJwtDontUseInProdKeepItSafeAndLongEnough";
 
-//    @Value("${jwt.expiration:1800000}")
     private long expirationMs = 1800000;
 
     private SecretKey getSigningKey() {
