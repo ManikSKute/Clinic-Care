@@ -12,7 +12,7 @@ import java.util.function.Function;
 public class JwtUtil {
 
     
-    private String secret = "SuperSecretKeyForJwtDontUseInProdKeepItSafeAndLongEnough";
+    private String secret = "SuperSecretKeyForJwtKeepItSafeAndLongEnough";
 
     private long expirationMs = 1800000;
 
